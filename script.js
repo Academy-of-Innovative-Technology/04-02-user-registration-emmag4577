@@ -41,3 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         var savedUser = JSON.parse(saved);
+        document.querySelector("#savedFirstName").textContent = savedUser.firstName;
+        document.querySelector("#savedLastName").textContent = savedUser.lastName;
+        document.querySelector("#savedEmail").textContent = savedUser.email;
+        document.querySelector("#savedCountry").textContent = savedUser.country;
+        document.querySelector("#savedAccountType").textContent = savedUser.accountType;
+        document.querySelector("#savedAbout").textContent = savedUser.about;
+
+        document.querySelector("#noSavedUser").classList.add("d-none");
+        document.querySelector("#savedUserPanel").classList.remove("d-none");
+
+    });
