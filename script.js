@@ -54,6 +54,28 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#savedUserPanel").classList.remove("d-none");
     });
 
+    document.querySelector("#loadUserBtn").addEventListener("click", function(){
+
+    var saved = localStorage.getItem("registeredUser");
+
+    if(saved == null){
+        document.querySelector("#noSavedUser").classList.remove("d-none");
+        document.querySelector("#savedUserPanel").classList.add("d-none");
+        return;
+    }
+
+    var savedUser = JSON.parse(saved);
+
+    document.querySelector("#savedFirstName").textContent = savedUser.firstName;
+    document.querySelector("#savedLastName").textContent = savedUser.lastName;
+    document.querySelector("#savedEmail").textContent = savedUser.email;
+    document.querySelector("#savedCountry").textContent = savedUser.country;
+    document.querySelector("#savedAccountType").textContent = savedUser.accountType;
+    document.querySelector("#savedAbout").textContent = savedUser.about;
+
+    document.querySelector("#noSavedUser").classList.add("d-none");
+    document.querySelector("#savedUserPanel").classList.remove("d-none");
+});
 
     document.querySelector("#clearUserBtn").addEventListener("click", function(){
 
