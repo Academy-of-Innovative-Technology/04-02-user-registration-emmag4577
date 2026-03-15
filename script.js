@@ -29,3 +29,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+ document.querySelector("#loadUserBtn").addEventListener("click", function(){
+
+        var saved = localStorage.getItem("registeredUser");
+
+        if(saved == null){
+            document.querySelector("#noSavedUser").classList.remove("d-none");
+            document.querySelector("#savedUserPanel").classList.add("d-none");
+            return;
+        }
+
+        var savedUser = JSON.parse(saved);
