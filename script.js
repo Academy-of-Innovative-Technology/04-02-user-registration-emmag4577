@@ -52,3 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#savedUserPanel").classList.remove("d-none");
 
     });
+ document.querySelector("#clearUserBtn").addEventListener("click", function(){
+
+        localStorage.removeItem("registeredUser");
+
+        document.querySelector("#noSavedUser").classList.remove("d-none");
+        document.querySelector("#savedUserPanel").classList.add("d-none");
+
+    });
