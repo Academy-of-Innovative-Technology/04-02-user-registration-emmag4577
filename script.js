@@ -1,36 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
+
     var form = document.querySelector("form");
+
     form.addEventListener("submit", function(event) {
-            event.preventDefault();
 
-            var firstName = document.querySelectorAll(".form-control")[0].value;
-            var lastName = document.querySelectorAll(".form-control")[1].value;
-            var email = document.querySelectorAll(".form-control")[2].value;
-            var password = document.querySelectorAll(".form-control")[3].value;
+        event.preventDefault();
 
-            var country = document.querySelector(".form-select").value;
+        var firstName = document.querySelectorAll(".form-control")[0].value;
+        var lastName = document.querySelectorAll(".form-control")[1].value;
+        var email = document.querySelectorAll(".form-control")[2].value;
+        var password = document.querySelectorAll(".form-control")[3].value;
 
-            var accountType = document.querySelector('input[name ="accountType"]:checked').nextElementSibling.textContent;
+        var country = document.querySelector(".form-select").value;
 
-            var about = document.querySelector("textarea").value;
+        var accountType = document.querySelector('input[name="accountType"]:checked').nextElementSibling.textContent;
 
-            var user = {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password,
-                country: country,
-                accountType: accountType,
-                about: about
-            }
+        var about = document.querySelector("textarea").value;
 
-            localStorage.setItem("registeredUser", JSON.stringify(user));
+        var user = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+            country: country,
+            accountType: accountType,
+            about: about
+        };
 
+        localStorage.setItem("registeredUser", JSON.stringify(user));
     });
 
-});
 
- document.querySelector("#loadUserBtn").addEventListener("click", function(){
+    document.querySelector("#loadUserBtn").addEventListener("click", function(){
 
         var saved = localStorage.getItem("registeredUser");
 
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         var savedUser = JSON.parse(saved);
+
         document.querySelector("#savedFirstName").textContent = savedUser.firstName;
         document.querySelector("#savedLastName").textContent = savedUser.lastName;
         document.querySelector("#savedEmail").textContent = savedUser.email;
@@ -50,9 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.querySelector("#noSavedUser").classList.add("d-none");
         document.querySelector("#savedUserPanel").classList.remove("d-none");
-
     });
- document.querySelector("#clearUserBtn").addEventListener("click", function(){
+
+
+    document.querySelector("#clearUserBtn").addEventListener("click", function(){
 
         localStorage.removeItem("registeredUser");
 
@@ -60,3 +63,5 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#savedUserPanel").classList.add("d-none");
 
     });
+
+});
