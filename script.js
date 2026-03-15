@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var accountType = document.querySelector('input[name ="accountType"]:checked').nextElementSibling.textContent;
 
             var about = document.querySelector("textarea").value;
+
             
 
     });
