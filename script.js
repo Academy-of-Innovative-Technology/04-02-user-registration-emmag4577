@@ -14,7 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             var about = document.querySelector("textarea").value;
 
-            
+            var user = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+                country: country,
+                accountType: accountType,
+                about: about
+            }
+
+            localStorage.setItem("registeredUser", JSON.stringify(user));
 
     });
 
